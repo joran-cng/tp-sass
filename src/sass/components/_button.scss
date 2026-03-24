@@ -1,0 +1,23 @@
+// Rôle : Styles pour les boutons réutilisables (variantes, états hover).
+.btn-premium {
+  // Propriétés complexes difficiles en pur Tailwind
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  .icon-svg {
+    margin-left: 10px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
+    .icon-svg {
+      transform: translateX(5px) rotate(15deg);
+    }
+  }
+}

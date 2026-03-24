@@ -1,0 +1,6 @@
+// Rôle : Contient des blocs de code réutilisables (ex: media queries, centres Flexbox).
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

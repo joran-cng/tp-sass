@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+}
+
+.main-header {
+  width: 100%;
+  background: #fff;
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-premium .icon-svg {
+  margin-left: 10px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+.btn-premium:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn-premium:hover .icon-svg {
+  transform: translateX(5px) rotate(15deg);
+}
+
+.hero-section {
+  height: 80vh;
+}
+
+body.dark {
+  background-color: #333;
+  color: #eee;
+}
+
+/*# sourceMappingURL=style.css.map */

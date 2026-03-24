@@ -1,0 +1,6 @@
+// Rôle : Supprime les marges et paddings par défaut des navigateurs.
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
