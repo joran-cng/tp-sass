@@ -1,0 +1,72 @@
+// 1. Espacements (Spacing)
+$spaces: (0: 0, 1: 0.25rem, 2: 0.5rem, 3: 1rem, 4: 2rem, 5: 3rem);
+$sides: (t: top, b: bottom, l: left, r: right);
+
+@each $key, $val in $spaces {
+  // Margin & Padding globals
+  .p-#{$key} { padding: $val !important; }
+  .m-#{$key} { margin: $val !important; }
+
+  // Margin & Padding spécifiques (t, b, l, r)
+  @each $char, $side in $sides {
+    .p#{$char}-#{$key} { padding-#{$side}: $val !important; }
+    .m#{$char}-#{$key} { margin-#{$side}: $val !important; }
+  }
+
+  // Axes X et Y
+  .px-#{$key} { padding-left: $val !important; padding-right: $val !important; }
+  .py-#{$key} { padding-top: $val !important; padding-bottom: $val !important; }
+  .mx-#{$key} { margin-left: $val !important; margin-right: $val !important; }
+  .my-#{$key} { margin-top: $val !important; margin-bottom: $val !important; }
+}
+
+// 2. Couleurs (Colors)
+// Boucle importée depuis _variables.scss car la génération de classes se fait dans les 'utilities' (Architecture 7-1)
+@each $name, $value in $colors {
+  .text-#{$name} { color: $value !important; }
+  .bg-#{$name} { background-color: $value !important; }
+}
+
+// 3. Flexbox (Mini framework inspiré de Tailwind)
+.flex { display: flex !important; }
+.inline-flex { display: inline-flex !important; }
+
+// Flex Direction
+.flex-row { flex-direction: row !important; }
+.flex-col { flex-direction: column !important; }
+
+// Justify Content
+$justify-options: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly
+);
+
+@each $key, $val in $justify-options {
+  .justify-#{$key} { justify-content: $val !important; }
+}
+
+// Align Items
+$align-options: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+@each $key, $val in $align-options {
+  .items-#{$key} { align-items: $val !important; }
+}
+
+// Flex Wrap
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+
+// Flex Gap (utilise les tokens d'espacement)
+@each $key, $val in $spaces {
+  .gap-#{$key} { gap: $val !important; }
+}

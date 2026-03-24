@@ -1,30 +1,113 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="theme-light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Bouton Premium - TP Sass 7-1</title>
+    <title>Sass Masterclass - Tous les défis</title>
+    <!-- Chargement de notre fichier compilé par Sass contenant les Défi 1 à 7 ! -->
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f2f5;
-            margin: 0;
-            font-family: sans-serif;
-        }
+        /* On override juste p en natif pour plus de confort, tout le reste est dans style.css */
+        p { margin: 10px 0; color: #555; line-height: 1.5; }
     </style>
 </head>
-<body>
+<body class="">
+    
+    <!-- DÉFI 6 : LAYOUT & ARCHITECTURE -->
+    <!-- Sidebar -->
+    <aside class="sidebar p-4">
+        <!-- DÉFI 1 & 7 : Text colors utilities -->
+        <h2 class="text-white">Mon App SASS</h2>
+        <a href="#">Accueil</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Paramètres</a>
+        
+        <!-- DÉFI 5 : THÉMING JS Toggle -->
+        <div class="mt-4 p-2 bg-dark-light">
+            <button id="theme-toggle" class="btn btn--outline btn--sm text-white">Activer Dark Mode</button>
+        </div>
+    </aside>
 
-<a href="#" class="btn-premium">
-    Découvrir l'offre
-    <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/>
-    </svg>
-</a>
+    <!-- Content Area (margin-left auto via _sidebar.scss) -->
+    <main class="content">
+        <!-- Navbar -->
+        <!-- DÉFI 7 : FRAMEWORK FLEX & SPACING (flex justify-between items-center px-4 py-2 mb-4) -->
+        <nav class="navbar flex justify-between items-center px-4 py-2 mb-4">
+            <div>
+                <a href="#">Lien 1</a>
+                <a href="#">Lien 2</a>
+            </div>
+            <!-- DÉFI 1 : TOKENS (bg-danger text-white) -->
+            <span class="text-white bg-danger px-2 py-1 flex items-center gap-1">
+                Badge SASS
+            </span>
+        </nav>
 
+        <!-- DÉFI 7 : FRAMEWORK FLEX & SPACING -->
+        <div class="flex flex-col gap-4 p-4 mt-2">
+            <h1>Démonstration des 7 défis Sass</h1>
+            <p class="text-secondary-dark font-weight-bold">Testons tout ce qui a été compilé !</p>
+            
+            <!-- DÉFI 2 : GRILLE RESPONSIVE -->
+            <div class="row"> 
+                
+                <div class="col-12 col-md-6 col-lg-4 p-2">
+                    <!-- DÉFI 6 : COMPOSANT CARD -->
+                    <!-- DÉFI 1 : TOKENS (bg-white) -->
+                    <div class="card p-3">
+                        <h3 class="text-primary">Card 1</h3>
+                        <p>Démonstration Grille Responsive (Défi 2): 12 colonnes (Mobile), 6 (Tablette), 4 (Desktop)</p>
+                        <!-- DÉFI 4 : BOUTONS SCALABLES (btn btn--primary btn--sm) -->
+                        <div class="flex gap-2 mt-3">
+                            <button class="btn btn--primary btn--sm">Petit / Primary</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 p-2">
+                    <div class="card p-3">
+                        <h3 class="text-secondary">Card 2</h3>
+                        <p>Démonstration Boutons (Défi 4): Héritage via placeholders et mixin de taille/variantes.</p>
+                        <div class="flex gap-2 mt-3">
+                            <button class="btn btn--secondary btn--md">Moyen / Secondary</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4 p-2">
+                    <div class="card p-3">
+                        <h3 class="text-danger">Card 3</h3>
+                        <p>Démonstration Form & Espacements (Défi 3 & 7).</p>
+                        <!-- Composant Formulaire -->
+                        <div class="flex flex-col gap-2 mt-2">
+                            <label for="name">Label Sémantique</label>
+                            <input type="text" id="name" placeholder="Input stylisé..." class="my-1">
+                            <button class="btn btn--outline btn--lg mt-2">Grand / Outline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS simple pour le Dark Mode (Défi 5) -->
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        btn.addEventListener('click', () => {
+            const isDark = htmlElement.classList.contains('theme-dark');
+            
+            if(isDark) {
+                htmlElement.classList.remove('theme-dark');
+                htmlElement.classList.add('theme-light');
+                btn.textContent = 'Activer Dark Mode';
+            } else {
+                htmlElement.classList.remove('theme-light');
+                htmlElement.classList.add('theme-dark');
+                btn.textContent = 'Désactiver Dark Mode';
+            }
+        });
+    </script>
 </body>
 </html>

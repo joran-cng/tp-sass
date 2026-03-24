@@ -1,3 +1,30 @@
 // Rôle : Stocke toutes les variables globales (couleurs, polices, points d'arrêt).
 $primary-color: #3498db;
 $font-main: 'Helvetica', sans-serif;
+
+$colors: (
+        "primary": #3490dc,
+        "primary-dark": #2779bd,
+        "secondary": #6c757d,
+        "secondary-dark": #5a6268,
+        "danger": #e3342f,
+        "danger-dark": #cc1f1a,
+        "dark": #2d3748,
+        "dark-light": #4a5568,
+        "bg-body": #f5f5f5,
+        "text-main": #333,
+        "white": #ffffff,
+        "border": #ccc
+);
+
+$sidebar-width: 250px;
+$content-gap: 10px;
+$breakpoint-md: 768px;
+
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+  @error "La couleur '#{$key}' n'existe pas.";
+}
+

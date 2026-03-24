@@ -4,3 +4,19 @@
   justify-content: center;
   align-items: center;
 }
+
+// Mixin responsive pour éviter les @media partout
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+// Mixin pour les variantes de boutons
+@mixin btn-variant($bg-color, $hover-color) {
+  background-color: $bg-color;
+  color: color("white");
+  &:hover {
+    background-color: $hover-color;
+  }
+}

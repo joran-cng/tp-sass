@@ -1,0 +1,13 @@
+.navbar {
+  background: color("primary");
+  padding: 10px;
+  color: color("white");
+
+  @include mobile-only { text-align: center; }
+
+  a {
+    color: color("white");
+    text-decoration: none;
+    margin-right: 15px;
+  }
+}

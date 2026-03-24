@@ -1,1 +1,10 @@
 // style des cards
+
+.card {
+  background: color("white");
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  h3 { margin-top: 0; }
+}

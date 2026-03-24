@@ -1,0 +1,26 @@
+@use "sass:math";
+
+$breakpoints: (
+        "sm": 576px,
+        "md": 768px,
+        "lg": 992px
+);
+
+.row { display: flex; flex-wrap: wrap; }
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: percentage(math.div($i, 12));
+    flex: 0 0 auto;
+  }
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @media (min-width: $bp-value) {
+    @for $i from 1 through 12 {
+      .col-#{$bp-name}-#{$i} {
+        width: percentage(math.div($i, 12));
+      }
+    }
+  }
+}

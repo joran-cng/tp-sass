@@ -1,0 +1,25 @@
+.sidebar {
+  width: $sidebar-width;
+  background: color("dark");
+  color: color("white");
+  height: 100vh;
+  position: fixed;
+
+  @include mobile-only { display: none; }
+
+  a {
+    display: block;
+    padding: 10px;
+    color: color("white");
+    text-decoration: none;
+
+    &:hover { background: color("dark-light"); }
+  }
+}
+
+.content {
+  margin-left: $sidebar-width + $content-gap;
+  padding: 20px;
+
+  @include mobile-only { margin-left: 0; }
+}

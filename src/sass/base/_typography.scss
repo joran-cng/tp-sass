@@ -1,5 +1,20 @@
 // Rôle : Définit les styles de base pour le texte (corps, titres h1-h6, liens).
+
 body {
-  font-family: $font-main;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background: color("bg-body");
+  margin: 0;
 }
+
+h1, h2 { color: color("text-main"); }
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+
+input {
+  padding: 10px;
+  border: 1px solid color("border");
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+label { font-weight: bold; }

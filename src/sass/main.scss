@@ -1,19 +1,29 @@
 // 1. Abstracts (Outils)
+@import 'abstracts/functions';
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
 // 2. Vendors (Externe)
 @import 'vendors/normalize';
+@import 'vendors/swiper';
 
 // 3. Base (Socle)
 @import 'base/reset';
 @import 'base/typography';
+@import 'base/utilities';
 
 // 4. Layout (Structure)
+@import 'layout/grid';
 @import 'layout/header';
+@import 'layout/navbar';
+@import 'layout/sidebar';
+@import 'layout/navigation';
+@import 'layout/footer';
 
 // 5. Components (Objets)
 @import 'components/button';
+@import 'components/card';
+@import 'components/form';
 
 // 6. Pages (Spécifique)
 @import 'pages/home';

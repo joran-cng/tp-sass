@@ -21,3 +21,46 @@
     }
   }
 }
+
+%btn-base {
+  display: inline-block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@mixin btn-size($padding, $font) {
+  padding: $padding;
+  font-size: $font;
+}
+
+.btn {
+  @extend %btn-base;
+
+  &--primary { background: color('primary'); color: white; }
+  &--secondary { background: color('secondary'); color: white; }
+  &--outline { background: transparent; border-color: color('primary'); color: color('primary'); }
+
+  &--sm { @include btn-size(5px 10px, 0.8rem); }
+  &--md { @include btn-size(10px 20px, 1rem); }
+  &--lg { @include btn-size(15px 30px, 1.25rem); }
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &--primary, &.btn-blue {
+    @include btn-variant(color("primary"), color("primary-dark"));
+  }
+
+  &--secondary, &.btn-gray {
+    @include btn-variant(color("secondary"), color("secondary-dark"));
+  }
+
+  &--danger, &.btn-red {
+    @include btn-variant(color("danger"), color("danger-dark"));
+  }
+}
